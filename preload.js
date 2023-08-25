@@ -26,5 +26,7 @@ contextBridge.exposeInMainWorld("electronAPI",{
     // loadPreferences: () => ipcRenderer.invoke('load-prefs'),
     ping:() => ipcRenderer.invoke('ping'),
     setTitle :(title) => ipcRenderer.send('set-title',title),
-    openFile: () => ipcRenderer.invoke('dialog:openFile')
+    openFile: () => ipcRenderer.invoke('dialog:openFile'),
+    syncMessage: (message) => ipcRenderer.sendSync('synchronous-message',message),
+    handleCounter: (callback) => ipcRenderer.on('update-counter', callback)
 })

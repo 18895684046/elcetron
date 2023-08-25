@@ -3,6 +3,8 @@ export interface IElectronAPI {
     ping: () => Promise<void>
     setTitle: (title: string) => Promise<void>
     openFile: () => Promise<void>
+    syncMessage: (message: string) => Promise<void>
+    handleCounter:(callback: (counter: number) => void) => Promise<void>
 }
 
 // 全局增强 Window 接口。
